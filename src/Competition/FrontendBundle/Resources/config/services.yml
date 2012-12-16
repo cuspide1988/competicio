@@ -1,0 +1,7 @@
+parameters:
+#    competition_frontend.example.class: Competition\FrontendBundle\Example
+
+services:
+#    competition_frontend.example:
+#        class: %competition_frontend.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
