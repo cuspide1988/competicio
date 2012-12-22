@@ -67,3 +67,8 @@ sonata_block:
         sonata.block.service.text:   ~
         sonata.block.service.action: ~
         sonata.block.service.rss:    ~
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Competition\UserBundle\Entity\User
