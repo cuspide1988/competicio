@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Competition\FrontendBundle\CompetitionFrontendBundle(),
             new Competition\UserBundle\CompetitionUserBundle(),
+            new Competition\TeamBundle\CompetitionTeamBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

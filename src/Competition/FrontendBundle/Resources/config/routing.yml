@@ -1,7 +1,11 @@
 competition_frontend_homepage:
-    pattern:  /
-    defaults: { _controller: CompetitionFrontendBundle:Page:index }
+    pattern:  /{_locale}
+    defaults: { _controller: CompetitionFrontendBundle:Page:index, _locale: es}
+    requirements:
+        _locale: es|en
 
 competition_frontend_about:
-    pattern:  /about
+    pattern:  /{_locale}/about
     defaults: { _controller: CompetitionFrontendBundle:Page:about }
+    requirements:
+            _locale: es|en
