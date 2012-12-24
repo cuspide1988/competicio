@@ -1,3 +1,11 @@
 Índice: Index
 Frontal: Frontend
 Título: Title
+
+goto:
+  home: Go back to homepage
+
+about:
+  us:
+    title: About us
+    description: I'm a web developer who worked on the creation and organization of electronic sports (eSports) for several years. The lack of free platforms so that any user can create tournaments and leagues I has led us to develop a simple tool that meets the expectations of those seeking organizing such events.

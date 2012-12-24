@@ -1,3 +1,7 @@
+competition_match:
+    resource: "@CompetitionMatchBundle/Resources/config/routing.yml"
+    prefix:   /
+
 competition_team:
     resource: "@CompetitionTeamBundle/Resources/config/routing.yml"
     prefix:   /
