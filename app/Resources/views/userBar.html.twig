@@ -1,11 +1,11 @@
-
+<div class="contain-to-grid">
     <nav class="top-bar">
         <ul>
             <!-- Title Area -->
             <li class="name">
                 <h1>
-                    <a href="#">
-                        Top Bar Title
+                    <a href="{{ path('competition_frontend_homepage') }}">
+                        CompetitionMaster
                     </a>
                 </h1>
             </li>
@@ -13,90 +13,47 @@
         </ul>
 
 
-        <section style="left: 0%;">
+        <section>
             <!-- Left Nav Section -->
             <ul class="left">
-                <li class="divider"></li>
-                <li class="has-dropdown">
-                    <a href="#" class="active">Item 1</a>
-                    <ul class="dropdown"><li class="title back js-generated" style=""><h5><a href="#">Item 1</a></h5></li>
-                        <li><label>Section Name</label></li>
-                        <li class="has-dropdown">
-                            <a class="" href="#">Level 1, Has Dropdown</a>
-                            <ul class="dropdown"><li class="title back js-generated"><h5><a href="#">Level 1, Has Dropdown</a></h5></li>
-                                <li><a href="#">Level 2</a></li>
-                                <li><a href="#">Level 2</a></li>
-                                <li class="has-dropdown"><a href="#">Level 2, Has Dropdown</a>
-                                    <ul class="dropdown"><li class="title back js-generated"><h5><a href="#">Level 2, Has Dropdown</a></h5></li>
-                                        <li><label>Section</label></li>
-                                        <li><a href="#">Level 3</a></li>
-                                        <li><a href="#">Level 3</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Level 3</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Level 2</a></li>
-                                <li><a href="#">Level 2</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Level 1</a></li>
-                        <li><a href="#">Level 1</a></li>
-                        <li class="divider"></li>
-                        <li><label>Section Name</label></li>
-                        <li><a href="#">Level 1</a></li>
-                        <li><a href="#">Level 1</a></li>
-                        <li><a href="#">Level 1</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">See all →</a></li>
-                    </ul>
-                </li>
-                <li class="divider hide-for-small"></li>
+
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                    {% for key, message in app.session.getFlashes() %}
+                        <div class="{{ key }}">
+                            {{ message|trans({}, 'FOSUserBundle') }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <li class="has-button">
+                        <a class="small button" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                    </li>
+                    <li class="has-button">
+                        <a class="small button" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                    </li>
+                {% endif %}
             </ul>
 
             <!-- Right Nav Section -->
             <ul class="right">
                 <li class="divider show-for-medium-and-up"></li>
                 <li class="has-dropdown">
-                    <a href="#">Item 2</a>
-                    <ul class="dropdown"><li class="title back js-generated"><h5><a href="#">Item 2</a></h5></li>
-                        <li><label>Section Name</label></li>
-                        <li><a class="" href="#">Level 1</a></li>
-                        <li><a href="#">Dropdown Option</a></li>
-                        <li><a href="#">Dropdown Option</a></li>
-                        <li class="divider"></li>
-                        <li><label>Section Name</label></li>
-                        <li><a href="#">Dropdown Option</a></li>
-                        <li><a href="#">Dropdown Option</a></li>
-                        <li><a href="#">Dropdown Option</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">See all →</a></li>
+                    <a href="#">Language</a>
+                    <ul class="dropdown">
+                        <li><a href="{{ path('competition_frontend_homepage', {_locale: 'en'}) }}">english</a></li>
+                        <li><a href="{{ path('competition_frontend_homepage', {_locale: 'es'}) }}">español</a></li>
                     </ul>
+                </li>
+                <li class="divider"></li>
+                <li class="search">
+                    <form>
+                        <input type="search">
+                    </form>
                 </li>
             </ul>
         </section>
     </nav>
-
-<div class="row user-bar">
-        <div class="four columns">
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
-        </div>
-
-        {% for key, message in app.session.getFlashes() %}
-            <div class="{{ key }}">
-                {{ message|trans({}, 'FOSUserBundle') }}
-            </div>
-        {% endfor %}
-
-        <div class="four columns">
-            <a href="{{ path('competition_frontend_homepage', {_locale: 'es'}) }}">castellano</a> |
-            <a href="{{ path('competition_frontend_homepage', {_locale: 'en'}) }}">english</a>
-        </div>
-        <div class="four columns"></div>
 </div>

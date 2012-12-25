@@ -81,7 +81,7 @@ resetting:
 layout:
     logout: Salir
     login: Entrar
-    register: Registrar
+    register: Registrarse
     logged_in_as: ¡Hola %username%!
 
 # Form field labels
