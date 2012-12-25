@@ -1,0 +1,7 @@
+parameters:
+#    competition_team.example.class: Competition\TeamBundle\Example
+
+services:
+#    competition_team.example:
+#        class: %competition_team.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

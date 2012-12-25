@@ -10,4 +10,9 @@ class PageController extends Controller
     {
         return $this->render('CompetitionFrontendBundle:Page:index.html.twig');
     }
+
+    public function aboutAction()
+    {
+        return $this->render('CompetitionFrontendBundle:Page:about.html.twig');
+    }
 }

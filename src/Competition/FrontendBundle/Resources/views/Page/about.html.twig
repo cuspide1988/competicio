@@ -1,0 +1,14 @@
+{% extends 'CompetitionFrontendBundle::layout.html.twig'%}
+
+{% block content %}
+    <div id="about-us-title" class="row">
+        <h2>{% trans %}about.us.title{% endtrans %}</h>
+    </div>
+    <div id="about-us-description" class="row">{% trans %}about.us.description{% endtrans %}</div>
+
+    <div class="row">
+        <a href=" {{ path('competition_frontend_homepage') }}">
+            {% trans %}goto.home{% endtrans %}
+        </a>
+    </div>
+{% endblock %}

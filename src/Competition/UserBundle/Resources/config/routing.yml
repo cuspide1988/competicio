@@ -1,0 +1,3 @@
+competition_user_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: CompetitionUserBundle:Default:index }

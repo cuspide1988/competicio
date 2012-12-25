@@ -2,12 +2,48 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Hola!{% endblock %}</title>
+        {% stylesheets filter="compass"
+            "@CompetitionFrontendBundle/Resources/sass/main.sass"
+            "@CompetitionFrontendBundle/Resources/sass/_base.sass"
+            "../app/Resources/sass/app.sass"
+            "../app/Resources/sass/screen.sass"
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
+
     <body>
+        {% include '::userBar.html.twig' %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% include '::footer.html.twig' %}
+
+        {% javascripts
+            "../app/Resources/public/js/foundation/app.js"
+            "../app/Resources/public/js/foundation/jquery.cookie.js"
+            "../app/Resources/public/js/foundation/jquery.event.move.js"
+            "../app/Resources/public/js/foundation/jquery.event.swipe.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.accordion.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.alerts.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.buttons.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.clearing.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.forms.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.joyride.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.magellan.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.mediaQueryToggle.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.navigation.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.orbit.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.reveal.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.tabs.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.tooltips.js"
+            "../app/Resources/public/js/foundation/jquery.foundation.topbar.js"
+            "../app/Resources/public/js/foundation/jquery.js"
+            "../app/Resources/public/js/foundation/jquery.offcanvas.js"
+            "../app/Resources/public/js/foundation/jquery.placeholder.js"
+            "../app/Resources/public/js/foundation/modernizr.foundation.js"
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
     </body>
 </html>
