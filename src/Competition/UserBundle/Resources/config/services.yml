@@ -2,6 +2,8 @@ parameters:
 #    competition_user.example.class: Competition\UserBundle\Example
 
 services:
-#    competition_user.example:
-#        class: %competition_user.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    competition_user.registration.form.type:
+        class: Competition\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: competition_user_registration }

@@ -29,10 +29,10 @@
                     {% endfor %}
                 {% else %}
                     <li class="has-button">
-                        <a class="small button" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        <a class="small button" data-reveal-id="loginModal" href="#">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                     </li>
                     <li class="has-button">
-                        <a class="small button" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                        <a class="small button" data-reveal-id="registerModal" href="#">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
                     </li>
                 {% endif %}
             </ul>
@@ -57,3 +57,16 @@
         </section>
     </nav>
 </div>
+
+<div id="loginModal" class="reveal-modal small">
+    {% render 'FOSUserBundle:Security:login' %}
+</div>
+
+
+<div id="registerModal" class="reveal-modal">
+    {% render 'FOSUserBundle:Registration:register' %}
+</div>
+
+
+
+
