@@ -29,7 +29,10 @@ class AppKernel extends Kernel
             new Competition\FrontendBundle\CompetitionFrontendBundle(),
             new Competition\UserBundle\CompetitionUserBundle(),
             new Competition\TeamBundle\CompetitionTeamBundle(),
+            new Competition\BlogBundle\CompetitionBlogBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Competition\MatchBundle\CompetitionMatchBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

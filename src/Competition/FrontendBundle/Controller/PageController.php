@@ -8,7 +8,13 @@ class PageController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CompetitionFrontendBundle:Page:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $blogs = $em->getRepository('CompetitionBlogBundle:Blog')->getLatestBlogs();
+
+        return $this->render('CompetitionFrontendBundle:Page:index.html.twig', array(
+            'blogs' => $blogs
+        ));
     }
 
     public function aboutAction()

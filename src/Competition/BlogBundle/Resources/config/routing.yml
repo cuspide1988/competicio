@@ -1,0 +1,6 @@
+competition_blog_show:
+    pattern:  /{id}
+    defaults: { _controller: CompetitionBlogBundle:Blog:show }
+    requirements:
+        _method:  GET
+        id: \d+

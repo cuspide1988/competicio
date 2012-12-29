@@ -3,18 +3,17 @@
  * Created by JetBrains PhpStorm.
  * User: jordi
  * Date: 24/12/12
- * Time: 10:32
+ * Time: 0:03
  * To change this template use File | Settings | File Templates.
  */
 namespace Competition\MatchBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="match")
+ * @ORM\Table(name="matchgame")
  */
-class Match
+class MatchGame
 {
     /**
      * @ORM\Id
@@ -63,7 +62,7 @@ class Match
      * Set scheduledDate
      *
      * @param \DateTime $scheduledDate
-     * @return Match
+     * @return MatchGame
      */
     public function setScheduledDate($scheduledDate)
     {
@@ -86,7 +85,7 @@ class Match
      * Set limitDate
      *
      * @param \DateTime $limitDate
-     * @return Match
+     * @return MatchGame
      */
     public function setLimitDate($limitDate)
     {
@@ -109,7 +108,7 @@ class Match
      * Set isClosed
      *
      * @param boolean $isClosed
-     * @return Match
+     * @return MatchGame
      */
     public function setIsClosed($isClosed)
     {
@@ -132,7 +131,7 @@ class Match
      * Set serverIp
      *
      * @param string $serverIp
-     * @return Match
+     * @return MatchGame
      */
     public function setServerIp($serverIp)
     {
@@ -155,7 +154,7 @@ class Match
      * Set broadcast
      *
      * @param string $broadcast
-     * @return Match
+     * @return MatchGame
      */
     public function setBroadcast($broadcast)
     {

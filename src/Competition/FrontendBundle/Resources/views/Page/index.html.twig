@@ -2,7 +2,44 @@
 
 {% block content %}
     <div class="row">
-        <h2>{% trans %}Índice{% endtrans %}</h2>
-        <h3>{% trans %}Título{% endtrans %} 2</h3>
+        <div class="eight columns">
+            <div id="featured">
+                <img src="../images/orbit-demo/demo1.jpg" />
+                <img src="../images/orbit-demo/demo2.jpg" />
+                <img src="../images/orbit-demo/demo3.jpg" />
+            </div>
+        </div>
+        <div class="four columns">
+            Columna de información de partidos, ligas, torneos, etc.
+        </div>
+    </div>
+    <div class="row">
+        <div class="nine columns">
+        {% for blog in blogs %}
+            <article class="blog">
+                <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></div>
+                <header>
+                    <h2><a href="{{ path('competition_blog_show', { 'id': blog.id }) }}">{{ blog.title }}</a></h2>
+                </header>
+
+                <img src="{{ asset(['images/', blog.image]|join) }}" />
+                <div class="snippet">
+                    <p>{{ blog.blog(500) }}</p>
+                    <p class="continue"><a href="{{ path('competition_blog_show', { 'id': blog.id }) }}">Continue reading...</a></p>
+                </div>
+
+                <footer class="meta">
+                    <p>Comments: -</p>
+                    <p>Posted by <span class="highlight">{{blog.author}}</span> at {{ blog.created|date('h:iA') }}</p>
+                    <p>Tags: <span class="highlight">{{ blog.tags }}</span></p>
+                </footer>
+            </article>
+        {% else %}
+            <p>There are no blog entries for symblog</p>
+        {% endfor %}
+        </div>
+        <div class="three columns">
+            Últimos partidos, streamings, tags, etc.
+        </div>
     </div>
 {% endblock %}
