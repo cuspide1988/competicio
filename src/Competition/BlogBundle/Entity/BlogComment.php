@@ -9,7 +9,7 @@ namespace Competition\BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Competition\BlogBundle\Repository\CommentRepository")
+ * @ORM\Entity(repositoryClass="Competition\BlogBundle\Repository\BlogCommentRepository")
  * @ORM\Table(name="blogcomment")
  * @ORM\HasLifecycleCallbacks()
  */

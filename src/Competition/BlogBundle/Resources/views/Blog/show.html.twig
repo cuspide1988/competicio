@@ -14,5 +14,8 @@
                 <p>{{ blog.blog }}</p>
             </div>
         </article>
+
+        <h3>Comments</h3>
+        {% include 'CompetitionBlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
     </div>
 {% endblock %}

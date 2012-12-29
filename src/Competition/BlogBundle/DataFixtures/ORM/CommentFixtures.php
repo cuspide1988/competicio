@@ -12,7 +12,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Competition\BlogBundle\Entity\BlogComment;
 
-class CommentFixtures extends AbstractFixture implements OrderedFixtureInterface
+class BlogCommentFixtures extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
