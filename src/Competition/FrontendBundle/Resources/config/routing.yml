@@ -1,6 +1,6 @@
 competition_frontend_homepage:
-    pattern:  /{_locale}
-    defaults: { _controller: CompetitionFrontendBundle:Page:index, _locale: es}
+    pattern:  /{_locale}/{game_id}
+    defaults: { _controller: CompetitionFrontendBundle:Page:index, _locale: es, game_id: 0}
     requirements:
         _locale: es|en
 
@@ -9,3 +9,4 @@ competition_frontend_about:
     defaults: { _controller: CompetitionFrontendBundle:Page:about }
     requirements:
             _locale: es|en
+

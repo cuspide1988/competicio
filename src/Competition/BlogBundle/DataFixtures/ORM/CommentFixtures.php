@@ -126,6 +126,6 @@ class BlogCommentFixtures extends AbstractFixture implements OrderedFixtureInter
 
     public function getOrder()
     {
-        return 2;
+        return 3;
     }
 }

@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Competition\MatchBundle\CompetitionMatchBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new Competition\GameBundle\CompetitionGameBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

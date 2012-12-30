@@ -8,6 +8,7 @@
 namespace Competition\BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Competition\GameBundle\Entity;
 
 /**
  * @ORM\Entity(repositoryClass="Competition\BlogBundle\Repository\BlogRepository")
@@ -63,7 +64,15 @@ class Blog
      */
     protected $updated;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Competition\GameBundle\Entity\Game", inversedBy="id")
+     */
+    protected $game;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
 
     public function __construct()
     {
@@ -100,7 +109,7 @@ class Blog
     public function setTitle($title)
     {
         $this->title = $title;
-    
+        $this->setSlug($this->title);
         return $this;
     }
 
@@ -292,5 +301,79 @@ class Blog
     public function __toString()
     {
         return $this->getTitle();
+    }
+
+    /**
+     * Set game
+     *
+     * @param \Competition\GameBundle\Entity\Game $game
+     * @return Blog
+     */
+    public function setGame(\Competition\GameBundle\Entity\Game $game = null)
+    {
+        $this->game = $game;
+    
+        return $this;
+    }
+
+    /**
+     * Get game
+     *
+     * @return \Competition\GameBundle\Entity\Game 
+     */
+    public function getGame()
+    {
+        return $this->game;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Blog
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $this->slugify($slug);
+    
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function slugify($text)
+    {
+        // replace non letter or digits by -
+        $text = preg_replace('#[^\\pL\d]+#u', '-', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // transliterate
+        if (function_exists('iconv'))
+        {
+            $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+        }
+
+        // lowercase
+        $text = strtolower($text);
+
+        // remove unwanted characters
+        $text = preg_replace('#[^-\w]+#', '', $text);
+
+        if (empty($text))
+        {
+            return 'n-a';
+        }
+
+        return $text;
     }
 }

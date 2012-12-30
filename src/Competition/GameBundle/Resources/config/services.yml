@@ -1,0 +1,7 @@
+parameters:
+#    competition_game.example.class: Competition\GameBundle\Example
+
+services:
+#    competition_game.example:
+#        class: %competition_game.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

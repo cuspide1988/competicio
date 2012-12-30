@@ -7,6 +7,8 @@
  */
 namespace Competition\BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Competition\GameBundle\Entity;
 
 /**
  * @ORM\Entity(repositoryClass="Competition\BlogBundle\Repository\BlogRepository")
@@ -62,7 +64,15 @@ class Blog
      */
     protected $updated;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Competition\GameBundle\Entity\Game", inversedBy="id")
+     */
+    protected $game;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
 
     public function __construct()
     {
@@ -286,5 +296,33 @@ class Blog
     public function getComments()
     {
         return $this->comments;
+    }
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
+    /**
+     * Set game
+     *
+     * @param \Competition\GameBundle\Entity\Game $game
+     * @return Blog
+     */
+    public function setGame(\Competition\GameBundle\Entity\Game $game = null)
+    {
+        $this->game = $game;
+    
+        return $this;
+    }
+
+    /**
+     * Get game
+     *
+     * @return \Competition\GameBundle\Entity\Game 
+     */
+    public function getGame()
+    {
+        return $this->game;
     }
 }
