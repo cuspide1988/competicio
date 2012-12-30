@@ -15,7 +15,12 @@
             </div>
         </article>
 
-        <h3>Comments</h3>
-        {% include 'CompetitionBlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
+        <section class="comments" id="comments">
+            <h3>Comments</h3>
+            {% include 'CompetitionBlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
+
+            <h3>Add Comment</h3>
+            {% render 'CompetitionBlogBundle:BlogComment:new' with { 'blog_id': blog.id } %}
+        </section>
     </div>
 {% endblock %}
