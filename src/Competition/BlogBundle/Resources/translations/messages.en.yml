@@ -1,0 +1,10 @@
+blog:
+  entry:
+    by: Posted by
+    continue: Continue reading...
+    at: at
+    empty: There are no blog entries
+  comments:
+    title: Comments
+    add: Add comment
+    void: There are no comments for this post. Be the first to comment...

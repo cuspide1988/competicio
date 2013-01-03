@@ -1,1 +1,5 @@
-
+competition_game_select_redirect:
+    pattern:  /selectgame
+    defaults: { _controller: CompetitionGameBundle:Game:redirect }
+    requirements:
+        _method:  POST

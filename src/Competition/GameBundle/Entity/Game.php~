@@ -32,6 +32,11 @@ class Game
     protected $alias;
 
     /**
+     * @ORM\Column(type="string", length=10)
+     */
+    protected $slug;
+
+    /**
      * Get id
      *
      * @return integer 

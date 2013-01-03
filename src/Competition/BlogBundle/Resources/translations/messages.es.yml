@@ -1,0 +1,10 @@
+blog:
+  entry:
+    by: Escrito por
+    continue: Continuar leyendo...
+    at: a las
+    entry: No hay ninunga entrada en el blog
+  comments:
+    title: Comentarios
+    add: Añadir comentario
+    void: No hay comentarios en esta entrada. Sé el primero en comentar...

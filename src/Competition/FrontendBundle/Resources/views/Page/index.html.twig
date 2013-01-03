@@ -4,9 +4,9 @@
     <div class="row">
         <div class="eight columns">
             <div id="featured">
-                <img src="../images/orbit-demo/demo1.jpg" />
-                <img src="../images/orbit-demo/demo2.jpg" />
-                <img src="../images/orbit-demo/demo3.jpg" />
+                <img src="{{ asset(['images/orbit-demo/demo1', '.jpg']|join) }}" />
+                <img src="{{ asset(['images/orbit-demo/demo2', '.jpg']|join) }}" />
+                <img src="{{ asset(['images/orbit-demo/demo3', '.jpg']|join) }}" />
             </div>
         </div>
         <div class="four columns">
@@ -14,29 +14,31 @@
         </div>
     </div>
     <div class="row">
+        {% render "CompetitionGameBundle:Game:showSelectGame" %}
         <div class="nine columns">
         {% for blog in blogs %}
             <article class="blog">
-                <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></div>
+
                 <header>
                     <h2><a href="{{ path('competition_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}">{{ blog.title }}</a></h2>
                 </header>
+                <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|localeDate('long','none') }}</time></div>
 
                 <img src="{{ asset(['images/', blog.image]|join) }}" />
                 <div class="snippet">
                     <p>{{ blog.blog(500) }}</p>
-                    <p class="continue"><a href="{{ path('competition_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}">Continue reading...</a></p>
+                    <p class="continue"><a href="{{ path('competition_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}">{% trans %}blog.entry.continue{% endtrans %}</a></p>
                 </div>
 
                 <footer class="meta">
-                    <p>Comments: <a href="{{ path('competition_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}#comments">{{ blog.comments|length }}</a></p>
-                    <p>Posted by <span class="highlight">{{ blog.author }}</span> at {{ blog.created|date('h:iA') }}</p>
-                    <p>Tags: <span class="highlight">{{ blog.tags }}</span></p>
+                    <p>{% trans %}blog.comments.title{% endtrans %}: <a href="{{ path('competition_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}#comments">{{ blog.comments|length }}</a></p>
+                    <p>{% trans %}blog.entry.by{% endtrans %} <span class="highlight">{{ blog.author }}</span> {% trans %}blog.entry.at{% endtrans %} {{ blog.created|date('h:iA') }}</p>
                 </footer>
+
             </article>
-        {% else %}
-            <p>There are no blog entries for symblog</p>
-        {% endfor %}
+            {% else %}
+                <p>{% trans %}blog.entry.empty{% endtrans %}</p>
+            {% endfor %}
         </div>
         <div class="three columns">
             Últimos partidos, streamings, tags, etc.

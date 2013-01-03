@@ -24,6 +24,23 @@ class BlogRepository extends EntityRepository
             ->getResult();
     }
 
+    public function getLatestBlogsBySlug($gameSlug, $limit = null)
+    {
+        $qb = $this->createQueryBuilder('b')
+            ->select('b, c')
+            ->leftJoin('b.comments', 'c')
+            ->leftJoin('b.game', 'g')
+            ->where('g.slug = :game_slug')
+            ->addOrderBy('b.created', 'DESC')
+            ->setParameter('game_slug',$gameSlug);
+
+        if (false === is_null($limit))
+            $qb->setMaxResults($limit);
+
+        return $qb->getQuery()
+            ->getResult();
+    }
+
     public function getTags()
     {
         $blogTags = $this->createQueryBuilder('b')

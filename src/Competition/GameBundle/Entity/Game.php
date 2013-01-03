@@ -32,6 +32,11 @@ class Game
     protected $alias;
 
     /**
+     * @ORM\Column(type="string", length=10)
+     */
+    protected $slug;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -92,4 +97,27 @@ class Game
         return $this->getName();
     }
 
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Game
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 }

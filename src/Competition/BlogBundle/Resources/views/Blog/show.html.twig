@@ -6,20 +6,23 @@
     <div class="row">
         <article class="blog">
             <header>
-                <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></div>
                 <h2>{{ blog.title }}</h2>
+                <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|localeDate('long','none') }}</time></div>
             </header>
             <img src="{{ asset(['images/', blog.image]|join) }}" alt="{{ blog.title }} image not found" class="large" />
-            <div>
+            <div class="blog-text">
                 <p>{{ blog.blog }}</p>
             </div>
         </article>
-
+        <footer class="meta">
+            <p>{% trans %}blog.entry.by{% endtrans %} <span class="highlight">{{ blog.author }}</span> {% trans %}blog.entry.at{% endtrans %} {{ blog.created|date('h:iA') }}</p>
+            <p>Tags: <span class="highlight">{{ blog.tags }}</span></p>
+        </footer>
         <section class="comments" id="comments">
-            <h3>Comments</h3>
+            <h3>{% trans %}blog.comments.title{% endtrans %}:</h3>
             {% include 'CompetitionBlogBundle:BlogComment:index.html.twig' with { 'comments': comments } %}
 
-            <h3>Add Comment</h3>
+            <h3>{% trans %}blog.comments.add{% endtrans %}:</h3>
             {% render 'CompetitionBlogBundle:BlogComment:new' with { 'blog_id': blog.id } %}
         </section>
     </div>

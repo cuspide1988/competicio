@@ -6,12 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class PageController extends Controller
 {
-    public function indexAction()
+    public function indexAction($game_slug)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $blogs = $em->getRepository('CompetitionBlogBundle:Blog')->getLatestBlogs();
-
+        if(!$game_slug) {
+            $blogs = $em->getRepository('CompetitionBlogBundle:Blog')->getLatestBlogs();
+        } else {
+            $blogs = $em->getRepository('CompetitionBlogBundle:Blog')->getLatestBlogsBySlug($game_slug);
+        }
         return $this->render('CompetitionFrontendBundle:Page:index.html.twig', array(
             'blogs' => $blogs
         ));
