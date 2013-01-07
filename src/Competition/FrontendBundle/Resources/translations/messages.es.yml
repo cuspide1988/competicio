@@ -5,6 +5,9 @@ Título: Título
 goto:
   home: Volver a la página principal
 
+userbar:
+  games: Juegos
+
 about:
   us:
       title: Sobre nosotros

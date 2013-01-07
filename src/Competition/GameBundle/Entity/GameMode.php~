@@ -1,0 +1,117 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: Jordi Andújar
+ * Date: 7/01/13
+ * Time: 22:33
+ */
+namespace Competition\GameBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="game_mode")
+ */
+class GameMode
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Game", inversedBy="id")
+     */
+    protected $game;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $numberOfTeams;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $numberOfPlayersPerTeam;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set numberOfTeams
+     *
+     * @param integer $numberOfTeams
+     * @return GameMode
+     */
+    public function setNumberOfTeams($numberOfTeams)
+    {
+        $this->numberOfTeams = $numberOfTeams;
+    
+        return $this;
+    }
+
+    /**
+     * Get numberOfTeams
+     *
+     * @return integer 
+     */
+    public function getNumberOfTeams()
+    {
+        return $this->numberOfTeams;
+    }
+
+    /**
+     * Set numberOfPlayersPerTeam
+     *
+     * @param integer $numberOfPlayersPerTeam
+     * @return GameMode
+     */
+    public function setNumberOfPlayersPerTeam($numberOfPlayersPerTeam)
+    {
+        $this->numberOfPlayersPerTeam = $numberOfPlayersPerTeam;
+    
+        return $this;
+    }
+
+    /**
+     * Get numberOfPlayersPerTeam
+     *
+     * @return integer 
+     */
+    public function getNumberOfPlayersPerTeam()
+    {
+        return $this->numberOfPlayersPerTeam;
+    }
+
+    /**
+     * Set gameId
+     *
+     * @param \Competition\GameBundle\Entity\Game $gameId
+     * @return GameMode
+     */
+    public function setGameId(\Competition\GameBundle\Entity\Game $gameId)
+    {
+        $this->gameId = $gameId;
+    
+        return $this;
+    }
+
+    /**
+     * Get gameId
+     *
+     * @return \Competition\GameBundle\Entity\Game 
+     */
+    public function getGameId()
+    {
+        return $this->gameId;
+    }
+}

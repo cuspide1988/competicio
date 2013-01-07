@@ -5,6 +5,9 @@ Título: Title
 goto:
   home: Go back to homepage
 
+userbar:
+  games: Games
+
 about:
   us:
     title: About us

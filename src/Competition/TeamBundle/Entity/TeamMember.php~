@@ -19,13 +19,13 @@ class TeamMember
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="id")
      */
-    protected $teamId;
+    protected $team;
 
     /**
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Competition\UserBundle\Entity\User", inversedBy="id")
      */
-    protected $userId;
+    protected $user;
 
     /**
      * @ORM\Column(type="boolean")

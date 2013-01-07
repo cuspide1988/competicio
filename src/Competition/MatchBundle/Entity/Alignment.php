@@ -1,23 +1,22 @@
 <?php
 /**
  * Created by JetBrains PhpStorm.
- * User: jordi
- * Date: 24/12/12
- * Time: 0:27
- * To change this template use File | Settings | File Templates.
+ * User: Jordi Andújar
+ * Date: 7/01/13
+ * Time: 22:26
  */
-namespace Competition\TeamBundle\Entity;
+namespace Competition\MatchBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="team_member")
+ * @ORM\Table(name="alignment")
  */
-class TeamMember
+class Alignment
 {
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Team", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="Competition\TeamBundle\Entity\Team", inversedBy="id")
      */
     protected $team;
 
@@ -28,95 +27,72 @@ class TeamMember
     protected $user;
 
     /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="MatchGame", inversedBy="id")
+     */
+    protected $match;
+
+    /**
      * @ORM\Column(type="boolean")
      */
-    protected $accepted;
+    protected $isValid;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    protected $joined;
+    protected $modified;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    protected $gradeId;
-
-
-    /**
-     * Set accepted
+     * Set isValid
      *
-     * @param \bool $accepted
-     * @return TeamMember
+     * @param boolean $isValid
+     * @return Alignment
      */
-    public function setAccepted(\bool $accepted)
+    public function setIsValid($isValid)
     {
-        $this->accepted = $accepted;
+        $this->isValid = $isValid;
     
         return $this;
     }
 
     /**
-     * Get accepted
+     * Get isValid
      *
-     * @return \bool 
+     * @return boolean 
      */
-    public function getAccepted()
+    public function getIsValid()
     {
-        return $this->accepted;
+        return $this->isValid;
     }
 
     /**
-     * Set joined
+     * Set modified
      *
-     * @param \DateTime $joined
-     * @return TeamMember
+     * @param \DateTime $modified
+     * @return Alignment
      */
-    public function setJoined($joined)
+    public function setModified($modified)
     {
-        $this->joined = $joined;
+        $this->modified = $modified;
     
         return $this;
     }
 
     /**
-     * Get joined
+     * Get modified
      *
      * @return \DateTime 
      */
-    public function getJoined()
+    public function getModified()
     {
-        return $this->joined;
-    }
-
-    /**
-     * Set gradeId
-     *
-     * @param integer $gradeId
-     * @return TeamMember
-     */
-    public function setGradeId($gradeId)
-    {
-        $this->gradeId = $gradeId;
-    
-        return $this;
-    }
-
-    /**
-     * Get gradeId
-     *
-     * @return integer 
-     */
-    public function getGradeId()
-    {
-        return $this->gradeId;
+        return $this->modified;
     }
 
     /**
      * Set teamId
      *
      * @param \Competition\TeamBundle\Entity\Team $teamId
-     * @return TeamMember
+     * @return Alignment
      */
     public function setTeamId(\Competition\TeamBundle\Entity\Team $teamId)
     {
@@ -139,7 +115,7 @@ class TeamMember
      * Set userId
      *
      * @param \Competition\UserBundle\Entity\User $userId
-     * @return TeamMember
+     * @return Alignment
      */
     public function setUserId(\Competition\UserBundle\Entity\User $userId)
     {
@@ -159,10 +135,33 @@ class TeamMember
     }
 
     /**
+     * Set matchId
+     *
+     * @param \Competition\MatchBundle\Entity\MatchGame $matchId
+     * @return Alignment
+     */
+    public function setMatchId(\Competition\MatchBundle\Entity\MatchGame $matchId)
+    {
+        $this->matchId = $matchId;
+    
+        return $this;
+    }
+
+    /**
+     * Get matchId
+     *
+     * @return \Competition\MatchBundle\Entity\MatchGame 
+     */
+    public function getMatchId()
+    {
+        return $this->matchId;
+    }
+
+    /**
      * Set team
      *
      * @param \Competition\TeamBundle\Entity\Team $team
-     * @return TeamMember
+     * @return Alignment
      */
     public function setTeam(\Competition\TeamBundle\Entity\Team $team)
     {
@@ -185,7 +184,7 @@ class TeamMember
      * Set user
      *
      * @param \Competition\UserBundle\Entity\User $user
-     * @return TeamMember
+     * @return Alignment
      */
     public function setUser(\Competition\UserBundle\Entity\User $user)
     {
@@ -202,5 +201,28 @@ class TeamMember
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set match
+     *
+     * @param \Competition\MatchBundle\Entity\MatchGame $match
+     * @return Alignment
+     */
+    public function setMatch(\Competition\MatchBundle\Entity\MatchGame $match)
+    {
+        $this->match = $match;
+    
+        return $this;
+    }
+
+    /**
+     * Get match
+     *
+     * @return \Competition\MatchBundle\Entity\MatchGame 
+     */
+    public function getMatch()
+    {
+        return $this->match;
     }
 }

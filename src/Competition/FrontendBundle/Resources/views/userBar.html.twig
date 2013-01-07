@@ -45,7 +45,7 @@
                 </li>
                 <li class="divider"></li>
                 <li class="has-dropdown">
-                    <a href="#">userbar.games</a>
+                    <a href="#">{% trans %}userbar.games{% endtrans %}</a>
                     <ul class="dropdown">
                         {% for game in games %}
                             <li><a href="{{ path('competition_frontend_homepage', {_locale: user_locale, game_slug: game.slug}) }}">{{ game.name }}</a></li>
