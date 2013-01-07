@@ -14,8 +14,10 @@ class PageController extends Controller
         } else {
             $blogs = $em->getRepository('CompetitionBlogBundle:Blog')->getLatestBlogsBySlug($game_slug);
         }
+
+
         return $this->render('CompetitionFrontendBundle:Page:index.html.twig', array(
-            'blogs' => $blogs
+            'blogs' => $blogs,
         ));
     }
 
@@ -43,6 +45,18 @@ class PageController extends Controller
         return $this->render('CompetitionFrontendBundle:Page:sidebar.html.twig', array(
             'latestComments'    => $latestComments,
             'tags'              => $tagWeights
+        ));
+    }
+
+    public function userBarAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $games = $em->getRepository('CompetitionGameBundle:Game')
+            ->getAllSlugsAndNames();
+        $user_locale = $this->getRequest()->getLocale();
+        return $this->render('CompetitionFrontendBundle::userBar.html.twig', array(
+            'games' => $games,
+            'user_locale' => $user_locale,
         ));
     }
 }

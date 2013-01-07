@@ -1,5 +1,6 @@
 competition_game_select_redirect:
-    pattern:  /selectgame
+    pattern:  /{_locale}/selectgame
     defaults: { _controller: CompetitionGameBundle:Game:redirect }
     requirements:
         _method:  POST
+        _locale: es|en

@@ -19,4 +19,14 @@ class GameRepository extends EntityRepository
         return $slugs;
     }
 
+    public function getAllSlugsAndNames()
+    {
+        $qb = $this->createQueryBuilder('g')
+            ->select('g.slug, g.name')
+            ->where('g.isActive = true')
+            ->addOrderBy('g.name','ASC');
+
+        return $qb->getQuery()->getResult();
+    }
+
 }
