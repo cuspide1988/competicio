@@ -24,14 +24,16 @@ class MatchMapTeam
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Competition\TeamBundle\Entity\Team", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="Competition\TeamBundle\Entity\Team", inversedBy="matchMapTeam")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
      */
     protected $team;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MatchGame", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="MatchGame", inversedBy="matchMapTeam")
+     * @ORM\JoinColumn(name="matchgame_id", referencedColumnName="id")
      */
-    protected $match;
+    protected $matchGame;
 
     /**
      * @ORM\ManyToOne(targetEntity="Map", inversedBy="id")
@@ -77,71 +79,71 @@ class MatchMapTeam
     }
 
     /**
-     * Set teamId
+     * Set team
      *
-     * @param \Competition\TeamBundle\Entity\Team $teamId
+     * @param \Competition\TeamBundle\Entity\Team $team
      * @return MatchMapTeam
      */
-    public function setTeamId(\Competition\TeamBundle\Entity\Team $teamId)
+    public function setTeam(\Competition\TeamBundle\Entity\Team $team = null)
     {
-        $this->teamId = $teamId;
+        $this->team = $team;
     
         return $this;
     }
 
     /**
-     * Get teamId
+     * Get team
      *
      * @return \Competition\TeamBundle\Entity\Team 
      */
-    public function getTeamId()
+    public function getTeam()
     {
-        return $this->teamId;
+        return $this->team;
     }
 
     /**
-     * Set matchId
+     * Set match
      *
-     * @param \Competition\MatchBundle\Entity\MatchGame $matchId
+     * @param \Competition\MatchBundle\Entity\MatchGame $match
      * @return MatchMapTeam
      */
-    public function setMatchId(\Competition\MatchBundle\Entity\MatchGame $matchId)
+    public function setMatch(\Competition\MatchBundle\Entity\MatchGame $match = null)
     {
-        $this->matchId = $matchId;
+        $this->match = $match;
     
         return $this;
     }
 
     /**
-     * Get matchId
+     * Get match
      *
      * @return \Competition\MatchBundle\Entity\MatchGame 
      */
-    public function getMatchId()
+    public function getMatch()
     {
-        return $this->matchId;
+        return $this->match;
     }
 
     /**
-     * Set mapId
+     * Set map
      *
-     * @param \Competition\MatchBundle\Entity\Map $mapId
+     * @param \Competition\MatchBundle\Entity\Map $map
      * @return MatchMapTeam
      */
-    public function setMapId(\Competition\MatchBundle\Entity\Map $mapId = null)
+    public function setMap(\Competition\MatchBundle\Entity\Map $map = null)
     {
-        $this->mapId = $mapId;
+        $this->map = $map;
     
         return $this;
     }
 
     /**
-     * Get mapId
+     * Get map
      *
      * @return \Competition\MatchBundle\Entity\Map 
      */
-    public function getMapId()
+    public function getMap()
     {
-        return $this->mapId;
+        return $this->map;
     }
 }

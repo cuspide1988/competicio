@@ -16,26 +16,25 @@ class Alignment
 {
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Competition\TeamBundle\Entity\Team", inversedBy="id")
-     */
-    protected $team;
-
-    /**
-     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Competition\UserBundle\Entity\User", inversedBy="id")
      */
     protected $user;
 
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="MatchGame", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="MatchMapTeam", inversedBy="id")
      */
-    protected $match;
+    protected $match_map_team;
 
     /**
      * @ORM\Column(type="boolean")
      */
     protected $isValid;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $isMercenary;
 
     /**
      * @ORM\Column(type="datetime")
@@ -66,6 +65,29 @@ class Alignment
     }
 
     /**
+     * Set isMercenary
+     *
+     * @param boolean $isMercenary
+     * @return Alignment
+     */
+    public function setIsMercenary($isMercenary)
+    {
+        $this->isMercenary = $isMercenary;
+    
+        return $this;
+    }
+
+    /**
+     * Get isMercenary
+     *
+     * @return boolean 
+     */
+    public function getIsMercenary()
+    {
+        return $this->isMercenary;
+    }
+
+    /**
      * Set modified
      *
      * @param \DateTime $modified
@@ -86,98 +108,6 @@ class Alignment
     public function getModified()
     {
         return $this->modified;
-    }
-
-    /**
-     * Set teamId
-     *
-     * @param \Competition\TeamBundle\Entity\Team $teamId
-     * @return Alignment
-     */
-    public function setTeamId(\Competition\TeamBundle\Entity\Team $teamId)
-    {
-        $this->teamId = $teamId;
-    
-        return $this;
-    }
-
-    /**
-     * Get teamId
-     *
-     * @return \Competition\TeamBundle\Entity\Team 
-     */
-    public function getTeamId()
-    {
-        return $this->teamId;
-    }
-
-    /**
-     * Set userId
-     *
-     * @param \Competition\UserBundle\Entity\User $userId
-     * @return Alignment
-     */
-    public function setUserId(\Competition\UserBundle\Entity\User $userId)
-    {
-        $this->userId = $userId;
-    
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return \Competition\UserBundle\Entity\User 
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * Set matchId
-     *
-     * @param \Competition\MatchBundle\Entity\MatchGame $matchId
-     * @return Alignment
-     */
-    public function setMatchId(\Competition\MatchBundle\Entity\MatchGame $matchId)
-    {
-        $this->matchId = $matchId;
-    
-        return $this;
-    }
-
-    /**
-     * Get matchId
-     *
-     * @return \Competition\MatchBundle\Entity\MatchGame 
-     */
-    public function getMatchId()
-    {
-        return $this->matchId;
-    }
-
-    /**
-     * Set team
-     *
-     * @param \Competition\TeamBundle\Entity\Team $team
-     * @return Alignment
-     */
-    public function setTeam(\Competition\TeamBundle\Entity\Team $team)
-    {
-        $this->team = $team;
-    
-        return $this;
-    }
-
-    /**
-     * Get team
-     *
-     * @return \Competition\TeamBundle\Entity\Team 
-     */
-    public function getTeam()
-    {
-        return $this->team;
     }
 
     /**
@@ -204,25 +134,25 @@ class Alignment
     }
 
     /**
-     * Set match
+     * Set match_map_team
      *
-     * @param \Competition\MatchBundle\Entity\MatchGame $match
+     * @param \Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam
      * @return Alignment
      */
-    public function setMatch(\Competition\MatchBundle\Entity\MatchGame $match)
+    public function setMatchMapTeam(\Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam)
     {
-        $this->match = $match;
+        $this->match_map_team = $matchMapTeam;
     
         return $this;
     }
 
     /**
-     * Get match
+     * Get match_map_team
      *
-     * @return \Competition\MatchBundle\Entity\MatchGame 
+     * @return \Competition\MatchBundle\Entity\MatchMapTeam 
      */
-    public function getMatch()
+    public function getMatchMapTeam()
     {
-        return $this->match;
+        return $this->match_map_team;
     }
 }

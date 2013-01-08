@@ -55,18 +55,23 @@ class Team
     /**
      * @ORM\Column(type="integer")
      */
-    protected $countryId;
+    protected $country;
 
     /**
      * @ORM\Column(type="text")
      */
     protected $description;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Competition\MatchBundle\Entity\MatchMapTeam", mappedBy="team")
+     */
+    protected $matchMapTeam;
 
     public function __construct()
     {
 
     }
+
 
     /**
      * Get id
@@ -217,26 +222,26 @@ class Team
     }
 
     /**
-     * Set countryId
+     * Set country
      *
-     * @param integer $countryId
+     * @param integer $country
      * @return Team
      */
-    public function setCountryId($countryId)
+    public function setCountry($country)
     {
-        $this->countryId = $countryId;
+        $this->country = $country;
     
         return $this;
     }
 
     /**
-     * Get countryId
+     * Get country
      *
      * @return integer 
      */
-    public function getCountryId()
+    public function getCountry()
     {
-        return $this->countryId;
+        return $this->country;
     }
 
     /**
@@ -260,5 +265,38 @@ class Team
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Add matchMapTeam
+     *
+     * @param \Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam
+     * @return Team
+     */
+    public function addMatchMapTeam(\Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam)
+    {
+        $this->matchMapTeam[] = $matchMapTeam;
+    
+        return $this;
+    }
+
+    /**
+     * Remove matchMapTeam
+     *
+     * @param \Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam
+     */
+    public function removeMatchMapTeam(\Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam)
+    {
+        $this->matchMapTeam->removeElement($matchMapTeam);
+    }
+
+    /**
+     * Get matchMapTeam
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMatchMapTeam()
+    {
+        return $this->matchMapTeam;
     }
 }

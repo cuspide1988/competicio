@@ -157,4 +157,50 @@ class TeamMember
     {
         return $this->userId;
     }
+
+    /**
+     * Set team
+     *
+     * @param \Competition\TeamBundle\Entity\Team $team
+     * @return TeamMember
+     */
+    public function setTeam(\Competition\TeamBundle\Entity\Team $team)
+    {
+        $this->team = $team;
+    
+        return $this;
+    }
+
+    /**
+     * Get team
+     *
+     * @return \Competition\TeamBundle\Entity\Team 
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Competition\UserBundle\Entity\User $user
+     * @return TeamMember
+     */
+    public function setUser(\Competition\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Competition\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

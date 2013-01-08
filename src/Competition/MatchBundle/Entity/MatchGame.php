@@ -47,6 +47,15 @@ class MatchGame
      */
     protected $broadcast;
 
+    /**
+     * @ORM\OneToMany(targetEntity="MatchMapTeam", mappedBy="matchGame")
+     */
+    protected $matchMapTeam;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MatchComment", mappedBy="matchGame")
+     */
+    protected $comments;
 
     /**
      * Get id
@@ -171,5 +180,78 @@ class MatchGame
     public function getBroadcast()
     {
         return $this->broadcast;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add comments
+     *
+     * @param \Competition\MatchBundle\Entity\MatchComment $comments
+     * @return MatchGame
+     */
+    public function addComment(\Competition\MatchBundle\Entity\MatchComment $comments)
+    {
+        $this->comments[] = $comments;
+    
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Competition\MatchBundle\Entity\MatchComment $comments
+     */
+    public function removeComment(\Competition\MatchBundle\Entity\MatchComment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Add matchMapTeam
+     *
+     * @param \Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam
+     * @return MatchGame
+     */
+    public function addMatchMapTeam(\Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam)
+    {
+        $this->matchMapTeam[] = $matchMapTeam;
+    
+        return $this;
+    }
+
+    /**
+     * Remove matchMapTeam
+     *
+     * @param \Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam
+     */
+    public function removeMatchMapTeam(\Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam)
+    {
+        $this->matchMapTeam->removeElement($matchMapTeam);
+    }
+
+    /**
+     * Get matchMapTeam
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMatchMapTeam()
+    {
+        return $this->matchMapTeam;
     }
 }

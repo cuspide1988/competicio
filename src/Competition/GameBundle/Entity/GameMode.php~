@@ -37,6 +37,11 @@ class GameMode
     protected $numberOfPlayersPerTeam;
 
     /**
+     * @ORM\OneToMany(targetEntity="Competition\MatchBundle\Entity\Penalty", mappedBy="gameMode")
+     */
+    protected $penalties;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -113,5 +118,28 @@ class GameMode
     public function getGameId()
     {
         return $this->gameId;
+    }
+
+    /**
+     * Set game
+     *
+     * @param \Competition\GameBundle\Entity\Game $game
+     * @return GameMode
+     */
+    public function setGame(\Competition\GameBundle\Entity\Game $game = null)
+    {
+        $this->game = $game;
+    
+        return $this;
+    }
+
+    /**
+     * Get game
+     *
+     * @return \Competition\GameBundle\Entity\Game 
+     */
+    public function getGame()
+    {
+        return $this->game;
     }
 }

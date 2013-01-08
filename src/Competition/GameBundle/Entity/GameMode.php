@@ -37,6 +37,11 @@ class GameMode
     protected $numberOfPlayersPerTeam;
 
     /**
+     * @ORM\OneToMany(targetEntity="Competition\MatchBundle\Entity\Penalty", mappedBy="gameMode")
+     */
+    protected $penalties;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -136,5 +141,45 @@ class GameMode
     public function getGame()
     {
         return $this->game;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->penalties = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add penalties
+     *
+     * @param \Competition\MatchBundle\Entity\Penalty $penalties
+     * @return GameMode
+     */
+    public function addPenaltie(\Competition\MatchBundle\Entity\Penalty $penalties)
+    {
+        $this->penalties[] = $penalties;
+    
+        return $this;
+    }
+
+    /**
+     * Remove penalties
+     *
+     * @param \Competition\MatchBundle\Entity\Penalty $penalties
+     */
+    public function removePenaltie(\Competition\MatchBundle\Entity\Penalty $penalties)
+    {
+        $this->penalties->removeElement($penalties);
+    }
+
+    /**
+     * Get penalties
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPenalties()
+    {
+        return $this->penalties;
     }
 }

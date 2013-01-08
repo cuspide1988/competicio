@@ -55,210 +55,21 @@ class Team
     /**
      * @ORM\Column(type="integer")
      */
-    protected $countryId;
+    protected $country;
 
     /**
      * @ORM\Column(type="text")
      */
     protected $description;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Competition\MatchBundle\Entity\MatchMapTeam", mappedBy="team")
+     */
+    protected $matchMapTeam;
 
     public function __construct()
     {
 
     }
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Team
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set tag
-     *
-     * @param string $tag
-     * @return Team
-     */
-    public function setTag($tag)
-    {
-        $this->tag = $tag;
-    
-        return $this;
-    }
-
-    /**
-     * Get tag
-     *
-     * @return string 
-     */
-    public function getTag()
-    {
-        return $this->tag;
-    }
-
-    /**
-     * Set web
-     *
-     * @param string $web
-     * @return Team
-     */
-    public function setWeb($web)
-    {
-        $this->web = $web;
-    
-        return $this;
-    }
-
-    /**
-     * Get web
-     *
-     * @return string 
-     */
-    public function getWeb()
-    {
-        return $this->web;
-    }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Team
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-    
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime 
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     * @return Team
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string 
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Set avatar
-     *
-     * @param string $avatar
-     * @return Team
-     */
-    public function setAvatar($avatar)
-    {
-        $this->avatar = $avatar;
-    
-        return $this;
-    }
-
-    /**
-     * Get avatar
-     *
-     * @return string 
-     */
-    public function getAvatar()
-    {
-        return $this->avatar;
-    }
-
-    /**
-     * Set countryId
-     *
-     * @param integer $countryId
-     * @return Team
-     */
-    public function setCountryId($countryId)
-    {
-        $this->countryId = $countryId;
-    
-        return $this;
-    }
-
-    /**
-     * Get countryId
-     *
-     * @return integer 
-     */
-    public function getCountryId()
-    {
-        return $this->countryId;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Team
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
 }
