@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new Competition\MatchBundle\CompetitionMatchBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Competition\GameBundle\CompetitionGameBundle(),
+            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -31,7 +31,8 @@
         "doctrine/migrations": "@dev",
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "bcc/extra-tools-bundle": "dev-master",
-        "pagerfanta/pagerfanta": "dev-master"
+        "pagerfanta/pagerfanta": "dev-master",
+        "white-october/pagerfanta-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

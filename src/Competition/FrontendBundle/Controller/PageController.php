@@ -3,6 +3,9 @@
 namespace Competition\FrontendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Pagerfanta\Pagerfanta;
+use Pagerfanta\Adapter\ArrayAdapter;
 
 class PageController extends Controller
 {
@@ -15,9 +18,21 @@ class PageController extends Controller
             $blogs = $em->getRepository('CompetitionBlogBundle:Blog')->getLatestBlogsBySlug($game_slug);
         }
 
+        //PagerFanta
+        $page = $this->getRequest()->get('page',1);
+        $adapter = new ArrayAdapter($blogs);
+        $pagedBlogs = new Pagerfanta($adapter);
+        $pagedBlogs->setMaxPerPage(7);
+        try {
+
+            $pagedBlogs->setCurrentPage($page);
+
+        } catch (NotValidCurrentPageException $e) {
+            throw new NotFoundHttpException();
+        }
 
         return $this->render('CompetitionFrontendBundle:Page:index.html.twig', array(
-            'blogs' => $blogs,
+            'pagedBlogs' => $pagedBlogs,
         ));
     }
 

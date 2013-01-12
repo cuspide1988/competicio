@@ -1,5 +1,5 @@
 {
-    "hash": "db9024398045e7179ef1841acae55397",
+    "hash": "4c735a97283e2cec7466de54aa8a20e3",
     "packages": [
         {
             "name": "bcc/extra-tools-bundle",
@@ -2055,6 +2055,50 @@
             "keywords": [
                 "templating"
             ]
+        },
+        {
+            "name": "white-october/pagerfanta-bundle",
+            "version": "dev-master",
+            "target-dir": "WhiteOctober/PagerfantaBundle",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git",
+                "reference": "38e317a3ecd5a68e2322024ea8fe57632d4ddd68"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle/archive/38e317a3ecd5a68e2322024ea8fe57632d4ddd68.zip",
+                "reference": "38e317a3ecd5a68e2322024ea8fe57632d4ddd68",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": "2.*",
+                "pagerfanta/pagerfanta": "dev-master"
+            },
+            "time": "2012-07-24 12:48:41",
+            "type": "symfony-bundle",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "WhiteOctober\\PagerfantaBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pablo Díez",
+                    "email": "pablodip@gmail.com",
+                    "homepage": "http://github.com/pablodip"
+                }
+            ],
+            "description": "Bundle to use Pagerfanta with Symfony2",
+            "keywords": [
+                "page",
+                "paging"
+            ]
         }
     ],
     "packages-dev": null,
@@ -2076,6 +2120,7 @@
         "doctrine/migrations": 20,
         "doctrine/doctrine-migrations-bundle": 20,
         "bcc/extra-tools-bundle": 20,
-        "pagerfanta/pagerfanta": 20
+        "pagerfanta/pagerfanta": 20,
+        "white-october/pagerfanta-bundle": 20
     }
 }
