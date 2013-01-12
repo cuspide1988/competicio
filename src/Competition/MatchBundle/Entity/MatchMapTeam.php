@@ -102,29 +102,6 @@ class MatchMapTeam
     }
 
     /**
-     * Set match
-     *
-     * @param \Competition\MatchBundle\Entity\MatchGame $match
-     * @return MatchMapTeam
-     */
-    public function setMatch(\Competition\MatchBundle\Entity\MatchGame $match = null)
-    {
-        $this->match = $match;
-    
-        return $this;
-    }
-
-    /**
-     * Get match
-     *
-     * @return \Competition\MatchBundle\Entity\MatchGame 
-     */
-    public function getMatch()
-    {
-        return $this->match;
-    }
-
-    /**
      * Set map
      *
      * @param \Competition\MatchBundle\Entity\Map $map
