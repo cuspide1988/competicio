@@ -1,0 +1,6 @@
+profile:
+  show:
+    nick: "Nick"
+    email: "Email"
+    name: "Name"
+    surname: "Surname"

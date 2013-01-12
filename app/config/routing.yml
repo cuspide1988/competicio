@@ -14,9 +14,6 @@ competition_team:
     resource: "@CompetitionTeamBundle/Resources/config/routing.yml"
     prefix:   /
 
-competition_user:
-    resource: "@CompetitionUserBundle/Resources/config/routing.yml"
-    prefix:   /
 
 competition_frontend:
     resource: "@CompetitionFrontendBundle/Resources/config/routing.yml"
@@ -30,6 +27,9 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+
+_user_bundle:
+    resource: "@CompetitionUserBundle/Resources/config/routing.yml"
 
 # Internal routing configuration to handle ESI
 #_internal:

@@ -16,17 +16,12 @@
     </head>
 
     <body>
+        <noscript></noscript>
         {% render 'CompetitionFrontendBundle:Page:userBar' %}
 
-
-
-
+        {% block fos_user_content %}{% endblock %}
         {% block body %}{% endblock %}
         {% include '::footer.html.twig' %}
-
-
-
-
         {% javascripts
             "../app/Resources/public/js/foundation/jquery.js"
             "../app/Resources/public/js/foundation/app.js"

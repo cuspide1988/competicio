@@ -82,7 +82,8 @@ layout:
     logout: Salir
     login: Entrar
     register: Registrarse
-    logged_in_as: ¡Hola %username%!
+    logged_in_as: ¡Bienvenido %username%!
+    profile: Perfil
 
 # Form field labels
 form:
@@ -91,7 +92,7 @@ form:
     email: "Email:"
     current_password: "Contraseña actual:"
     password: "Contraseña:"
-    password_confirmation: "Verificación:"
+    password_confirmation: "Repite la contraseña:"
     new_password: "Nueva contraseña:"
     new_password_confirmation: "Verificación:"
     name: "Nombre:"

@@ -82,7 +82,8 @@ layout:
     logout: Logout
     login: Login
     register: Register
-    logged_in_as: Logged in as %username%
+    logged_in_as: ¡Welcome %username%!
+    profile: Profile
 
 # Form field labels
 form:
@@ -92,7 +93,7 @@ form:
     current_password: "Current Password:"
     password: "Password:"
     password_confirmation: "Verification:"
-    new_password: "New password:"
-    new_password_confirmation: "Verification:"
+    new_password: "Password:"
+    new_password_confirmation: "Retype the password:"
     name: "Name:"
     surname: "Surname:"

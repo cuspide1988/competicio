@@ -7,6 +7,7 @@ goto:
 
 userbar:
   games: Games
+  usermenu: User menu
 
 about:
   us:
