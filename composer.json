@@ -30,7 +30,8 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/migrations": "@dev",
         "doctrine/doctrine-migrations-bundle": "dev-master",
-        "bcc/extra-tools-bundle": "dev-master"
+        "bcc/extra-tools-bundle": "dev-master",
+        "pagerfanta/pagerfanta": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
