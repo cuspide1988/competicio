@@ -9,4 +9,3 @@ competition_frontend_about:
     defaults: { _controller: CompetitionFrontendBundle:Page:about }
     requirements:
             _locale: es|en
-

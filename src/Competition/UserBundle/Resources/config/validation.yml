@@ -1,0 +1,33 @@
+Competition\UserBundle\Entity\User:
+    properties:
+        username:
+            - NotBlank:
+                message: Please enter the name.
+            - MinLength:
+                limit: 3
+                message: Your nick must have at least {{ limit }} characters.
+            - MaxLength:
+                limit: 6
+                message: The name is too long.
+        email:
+            - Email:
+                message: The email "{{ value }}" is not a valid email.
+                checkMX: true
+        name:
+            - NotBlank:
+                message: Please enter the name.
+            - MinLength:
+                limit: 3
+                message: Your name must have at least {{ limit }} characters.
+            - MaxLength:
+                limit: 255
+                message: The name is too long.
+        surname:
+            - NotBlank:
+                message: Please enter the surname.
+            - MinLength:
+                limit: 3
+                message: Your name must have at least {{ limit }} characters.
+            - MaxLength:
+                limit: 255
+                message: The name is too long.

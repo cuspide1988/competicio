@@ -1,0 +1,11 @@
+profile:
+  show:
+    nick: "Nick"
+    email: "Email"
+    name: "Name"
+    surname: "Surname"
+register:
+  title: Register form
+
+login:
+  title: Login

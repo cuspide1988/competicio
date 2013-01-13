@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block fos_user_content %}
+    <div class="row">
+        <div id="registration-confirmed" class="four columns centered">
+            <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
+            {% if app.session is not empty %}
+                {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+                {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
+            {% endif %}
+            <div class="row">
+                <div class="five columns centered">
+                    <a class="small button" href=" {{ path('competition_frontend_homepage') }}">{% trans %}back.home{% endtrans %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock fos_user_content %}
