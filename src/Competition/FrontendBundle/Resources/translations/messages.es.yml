@@ -1,7 +1,3 @@
-Índice: Índice
-Frontal: Frontal
-Título: Título
-
 goto:
   home: Volver a la página principal
 
@@ -13,3 +9,6 @@ about:
   us:
       title: Sobre nosotros
       description: Soy un programador web que trabajé en la creación y organización de eventos deportivos electrónicos (eSports) durante varios años. La falta de plataformas libres para que cualquier usuario pueda crear torneos y ligas me ha llevado a desarrollar una herramienta sencilla que cumpla con las expectativas de aquellos que busquen organizar este tipo de eventos.
+
+back:
+  home: Volver al inicio
