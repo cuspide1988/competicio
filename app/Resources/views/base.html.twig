@@ -17,7 +17,12 @@
     </head>
 
     <body>
-        <noscript></noscript>
+        <noscript>
+            <div class="alert-box alert">
+                Hemos detectado que su navegador no está ejecutando JavaScript. Por favor, actívelo o use un navegador con JavaScript
+                <a href="" class="close">&times;</a>
+            </div>
+        </noscript>
         {% render 'CompetitionFrontendBundle:Page:userBar' %}
 
         {% block fos_user_content %}{% endblock %}

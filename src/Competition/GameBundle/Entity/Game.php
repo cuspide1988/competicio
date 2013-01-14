@@ -7,6 +7,7 @@
  */
 namespace Competition\GameBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Competition\MatchBundle\Entity\Map;
 
 /**
  * @ORM\Entity(repositoryClass="Competition\GameBundle\Repository\GameRepository")
@@ -40,6 +41,11 @@ class Game
      * @ORM\Column(type="boolean")
      */
     protected $isActive;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Competition\MatchBundle\Entity\Map", mappedBy="game")
+     */
+    protected $maps;
 
     /**
      * Get id
@@ -147,5 +153,45 @@ class Game
     public function getIsActive()
     {
         return $this->isActive;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->maps = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add maps
+     *
+     * @param \Competition\MatchBundle\Entity\Map $maps
+     * @return Game
+     */
+    public function addMap(Map $maps)
+    {
+        $this->maps[] = $maps;
+    
+        return $this;
+    }
+
+    /**
+     * Remove maps
+     *
+     * @param \Competition\MatchBundle\Entity\Map $maps
+     */
+    public function removeMap(Map $maps)
+    {
+        $this->maps->removeElement($maps);
+    }
+
+    /**
+     * Get maps
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMaps()
+    {
+        return $this->maps;
     }
 }

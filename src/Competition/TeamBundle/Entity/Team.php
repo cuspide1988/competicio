@@ -7,6 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 namespace Competition\TeamBundle\Entity;
+use Competition\MatchBundle\Entity\MatchMapTeam;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,11 +44,6 @@ class Team
     protected $created;
 
     /**
-     * @ORM\Column(type="string", length=256)
-     */
-    protected $password;
-
-    /**
      * @ORM\Column(type="string", length=64)
      */
     protected $avatar;
@@ -67,11 +63,14 @@ class Team
      */
     protected $matchMapTeam;
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-
+        $this->matchMapTeam = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->setCreated(new \DateTime());
     }
-
 
     /**
      * Get id
@@ -176,29 +175,6 @@ class Team
     }
 
     /**
-     * Set password
-     *
-     * @param string $password
-     * @return Team
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string 
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
      * Set avatar
      *
      * @param string $avatar
@@ -266,14 +242,14 @@ class Team
     {
         return $this->description;
     }
-
+    
     /**
      * Add matchMapTeam
      *
      * @param \Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam
      * @return Team
      */
-    public function addMatchMapTeam(\Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam)
+    public function addMatchMapTeam(MatchMapTeam $matchMapTeam)
     {
         $this->matchMapTeam[] = $matchMapTeam;
     
@@ -285,7 +261,7 @@ class Team
      *
      * @param \Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam
      */
-    public function removeMatchMapTeam(\Competition\MatchBundle\Entity\MatchMapTeam $matchMapTeam)
+    public function removeMatchMapTeam(MatchMapTeam $matchMapTeam)
     {
         $this->matchMapTeam->removeElement($matchMapTeam);
     }

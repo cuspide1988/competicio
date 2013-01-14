@@ -51,6 +51,8 @@
                             {% endfor %}
                             <li> <a href="{{ path('fos_user_profile_show') }}"> {{ 'layout.profile'|trans({}, 'FOSUserBundle') }} </a> </li>
                             <li><a href="{{ path('fos_user_security_logout') }}"> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} </a></li>
+                            <li><label>{% trans %}userbar.teammenu.title{% endtrans %}</label></li>
+                            <li> <a href="{{ path('competition_team_new') }}">{% trans %}userbar.teammenu.create{% endtrans %}</a> </li>
                         </ul>
                     {% else %}
                         <li class="has-button">

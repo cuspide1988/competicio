@@ -7,6 +7,7 @@
  */
 namespace Competition\MatchBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Competition\GameBundle\Entity\Game;
 
 /**
  * @ORM\Entity
@@ -20,6 +21,12 @@ class Map
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Competition\GameBundle\Entity\Game", inversedBy="maps")
+     * @ORM\JoinColumn(name="game_id", referencedColumnName="id")
+     */
+    protected $game;
 
     /**
      * @ORM\Column(type="string")
@@ -85,5 +92,28 @@ class Map
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set game
+     *
+     * @param \Competition\GameBundle\Entity\Game $game
+     * @return Map
+     */
+    public function setGame(Game $game = null)
+    {
+        $this->game = $game;
+    
+        return $this;
+    }
+
+    /**
+     * Get game
+     *
+     * @return \Competition\GameBundle\Entity\Game 
+     */
+    public function getGame()
+    {
+        return $this->game;
     }
 }

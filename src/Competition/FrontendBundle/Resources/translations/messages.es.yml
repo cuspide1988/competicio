@@ -4,6 +4,9 @@ goto:
 userbar:
   games: Juegos
   usermenu: Menú de usuario
+  teammenu:
+    title: Menú de equipo
+    create: Crear equipo
 
 about:
   us:

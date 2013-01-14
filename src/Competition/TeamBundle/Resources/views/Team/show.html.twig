@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ team.name }}{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h2>{{ team.name }}</h2>
+        <p>{{ team.description }}</p>
+        <p>{{ team.web }}</p>
+        <p>{{ team.created|localeDate('long','none') }}</p>
+    </div>
+{% endblock %}

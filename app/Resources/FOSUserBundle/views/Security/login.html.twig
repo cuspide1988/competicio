@@ -5,7 +5,7 @@
         <div class="six columns centered">
             <h3>{% trans %}login.title{% endtrans %}</h3>
             {% if error %}
-                <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+                <small class="error">{{ error|trans({}, 'FOSUserBundle') }}</small>
             {% endif %}
 
             <form action="{{ path("fos_user_security_check") }}" method="post">
