@@ -18,8 +18,13 @@ class RegistrationFormType extends BaseType
         parent::buildForm($builder, $options);
 
         // add your custom field
-        $builder->add('name',  null, array('label' => 'form.name', 'translation_domain' => 'FOSUserBundle'));
-        $builder->add('surname',  null, array('label' => 'form.surname', 'translation_domain' => 'FOSUserBundle'));
+        /*$builder->add('name',  null, array('label' => 'form.name', 'translation_domain' => 'FOSUserBundle', 'required' => false));
+        $builder->add('surname',  null, array('label' => 'form.surname', 'translation_domain' => 'FOSUserBundle', 'required' => false));
+        $builder->add('country','country', array(
+            'preferred_choices' => array('ES'),
+            'empty_value' => '----',
+            'required' => true
+        ));*/
     }
 
     public function getName()

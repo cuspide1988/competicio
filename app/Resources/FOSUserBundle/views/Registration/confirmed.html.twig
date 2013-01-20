@@ -1,8 +1,6 @@
-{% extends "::base.html.twig" %}
-
 {% block fos_user_content %}
     <div class="row">
-        <div id="registration-confirmed" class="four columns centered">
+        <div id="registration-confirmed">
             <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
             {% if app.session is not empty %}
                 {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}

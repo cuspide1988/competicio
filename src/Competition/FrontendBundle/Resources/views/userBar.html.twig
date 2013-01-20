@@ -44,15 +44,10 @@
                         <a href="#">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</a>
                         <ul class="dropdown">
                             <li><label>{% trans %}userbar.usermenu{% endtrans %}</label></li>
-                            {% for key, message in app.session.getFlashes() %}
-                                <div class="{{ key }}">
-                                    {{ message|trans({}, 'FOSUserBundle') }}
-                                </div>
-                            {% endfor %}
                             <li> <a href="{{ path('fos_user_profile_show') }}"> {{ 'layout.profile'|trans({}, 'FOSUserBundle') }} </a> </li>
                             <li><a href="{{ path('fos_user_security_logout') }}"> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }} </a></li>
                             <li><label>{% trans %}userbar.teammenu.title{% endtrans %}</label></li>
-                            <li> <a href="{{ path('competition_team_new') }}">{% trans %}userbar.teammenu.create{% endtrans %}</a> </li>
+                            <li> <a href="{{ path('competition_team_create') }}">{% trans %}userbar.teammenu.create{% endtrans %}</a> </li>
                         </ul>
                     {% else %}
                         <li class="has-button">
@@ -75,13 +70,26 @@
     </nav>
 </div>
 
+<div>
+    <!-- User alert boxes -->
+    {% for key, message in app.session.getFlashes() %}
+        <div class="alert-box {{ key }}">
+            {{ message|trans({}, 'FOSUserBundle') }}
+            <a href="" class="close">&times;</a>
+        </div>
+
+    {% endfor %}
+</div>
+
 <div id="loginModal" class="reveal-modal small">
-    {% render 'CompetitionFrontendBundle:Login:login' %}
+    {% render 'CompetitionFrontendBundle:LoginAndRegister:login' %}
+    <a class="close-reveal-modal">&#215;</a>
 </div>
 
 
 <div id="registerModal" class="reveal-modal">
-    {% render 'CompetitionFrontendBundle:User:registerForm' %}
+    {% render 'CompetitionFrontendBundle:LoginAndRegister:registerForm' %}
+    <a class="close-reveal-modal">&#215;</a>
 </div>
 
 

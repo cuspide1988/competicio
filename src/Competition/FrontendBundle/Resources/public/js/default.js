@@ -1,5 +1,9 @@
-//ORBIT
 $(window).load(function() {
+    loadOrbit();
+    loadAjaxRegisterForm();
+});
+
+function loadOrbit() {
     $('#featured').orbit({
         animation: 'fade',                  // fade, horizontal-slide, vertical-slide, horizontal-push
         animationSpeed: 800,                // how fast animtions are
@@ -19,4 +23,23 @@ $(window).load(function() {
         afterSlideChange: function(){},     // empty function
         fluid: true                         // or set a aspect ratio for content slides (ex: '4x3')
     });
+}
+
+function loadAjaxRegisterForm() {
+    $("#register_form").submit(function(){
+        //get the url for the form
+        var url=$("#register_form").attr("action");
+
+        $('#register_frontend_form').attr('action','');
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: $("#register_form").serialize(), // serializes the form's elements.
+            success: function(data)
+            {
+                $('#register_form_container').html(data);
+            }
+        })
+        return false;
     });
+}

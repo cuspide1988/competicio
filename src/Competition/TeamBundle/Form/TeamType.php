@@ -18,11 +18,9 @@ class TeamType extends AbstractType
         $builder
             ->add('name')
             ->add('tag')
-            ->add('web')
-            ->add('description')
-            ->add('avatar')
-            ->add('country')
-        ;
+            ->add('web', null, array('required' => false))
+            ->add('description', null, array('required' => false))
+            ->add('avatar', null, array('required' => false));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

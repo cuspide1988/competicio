@@ -24,17 +24,17 @@ class Team
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=64, nullable=false, unique=true)
      */
     protected $name;
 
     /**
-     * @ORM\Column(type="string", length=16)
+     * @ORM\Column(type="string", length=16, nullable=false, unique=true)
      */
     protected $tag;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=64, nullable=true)
      */
     protected $web;
 
@@ -44,17 +44,17 @@ class Team
     protected $created;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=64, nullable=true)
      */
     protected $avatar;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=4, nullable=true)
      */
     protected $country;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $description;
 
@@ -62,6 +62,11 @@ class Team
      * @ORM\OneToMany(targetEntity="Competition\MatchBundle\Entity\MatchMapTeam", mappedBy="team")
      */
     protected $matchMapTeam;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Competition\TeamBundle\Entity\TeamMember", mappedBy="team", cascade={"persist", "remove"})
+     */
+    protected $teamMembers;
 
     /**
      * Constructor
@@ -200,7 +205,7 @@ class Team
     /**
      * Set country
      *
-     * @param integer $country
+     * @param string $country
      * @return Team
      */
     public function setCountry($country)
@@ -213,7 +218,7 @@ class Team
     /**
      * Get country
      *
-     * @return integer 
+     * @return string
      */
     public function getCountry()
     {
@@ -274,5 +279,15 @@ class Team
     public function getMatchMapTeam()
     {
         return $this->matchMapTeam;
+    }
+
+    public function setTeamMembers($teamMembers)
+    {
+        $this->teamMembers = $teamMembers;
+    }
+
+    public function getTeamMembers()
+    {
+        return $this->teamMembers;
     }
 }

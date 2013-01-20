@@ -17,13 +17,13 @@ class TeamMember
 {
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Team", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="teamMembers")
      */
     protected $team;
 
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Competition\UserBundle\Entity\User", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="Competition\UserBundle\Entity\User", inversedBy="teamMembers")
      */
     protected $user;
 
@@ -37,19 +37,19 @@ class TeamMember
      */
     protected $joined;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    protected $gradeId;
 
+    public function __construct()
+    {
+        $this->setJoined(new \DateTime());
+    }
 
     /**
      * Set accepted
      *
-     * @param \bool $accepted
+     * @param boolean $accepted
      * @return TeamMember
      */
-    public function setAccepted(\bool $accepted)
+    public function setAccepted($accepted)
     {
         $this->accepted = $accepted;
     
@@ -87,75 +87,6 @@ class TeamMember
     public function getJoined()
     {
         return $this->joined;
-    }
-
-    /**
-     * Set gradeId
-     *
-     * @param integer $gradeId
-     * @return TeamMember
-     */
-    public function setGradeId($gradeId)
-    {
-        $this->gradeId = $gradeId;
-    
-        return $this;
-    }
-
-    /**
-     * Get gradeId
-     *
-     * @return integer 
-     */
-    public function getGradeId()
-    {
-        return $this->gradeId;
-    }
-
-    /**
-     * Set teamId
-     *
-     * @param \Competition\TeamBundle\Entity\Team $teamId
-     * @return TeamMember
-     */
-    public function setTeamId(\Competition\TeamBundle\Entity\Team $teamId)
-    {
-        $this->teamId = $teamId;
-    
-        return $this;
-    }
-
-    /**
-     * Get teamId
-     *
-     * @return \Competition\TeamBundle\Entity\Team 
-     */
-    public function getTeamId()
-    {
-        return $this->teamId;
-    }
-
-    /**
-     * Set userId
-     *
-     * @param \Competition\UserBundle\Entity\User $userId
-     * @return TeamMember
-     */
-    public function setUserId(\Competition\UserBundle\Entity\User $userId)
-    {
-        $this->userId = $userId;
-    
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return \Competition\UserBundle\Entity\User 
-     */
-    public function getUserId()
-    {
-        return $this->userId;
     }
 
     /**

@@ -1,7 +1,9 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Add Team{% endblock%}
-
 {% block body %}
-    {% include 'CompetitionTeamBundle:Team:form.html.twig' with { 'form': form } %}
+    <div class="row">
+        <div class="six columns centered">
+            {% include 'CompetitionTeamBundle:Team:form.html.twig' with { 'form': form } %}
+        </div>
+    </div>
 {% endblock %}

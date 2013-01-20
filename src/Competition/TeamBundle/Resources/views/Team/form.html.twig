@@ -1,5 +1,17 @@
 <form action="{{ path('competition_team_create' ) }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name) }}
+    {{ form_label(form.tag) }}
+    {{ form_widget(form.tag) }}
+    {{ form_label(form.web) }}
+    {{ form_widget(form.web) }}
+    {{ form_label(form.description) }}
+    {{ form_widget(form.description) }}
+    {{ form_label(form.avatar) }}
+    {{ form_widget(form.avatar) }}
+
+    {{ form_rest(form) }}
     <p>
         <input type="submit" value="Submit">
     </p>

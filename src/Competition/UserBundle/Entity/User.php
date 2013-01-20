@@ -27,14 +27,24 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=64, nullable=true)
      */
     protected $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=64, nullable=true)
      */
     protected $surname;
+
+    /**
+     * @ORM\Column(type="string", length=4, nullable=true)
+     */
+    protected $country;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Competition\TeamBundle\Entity\TeamMember", mappedBy="user", cascade={"persist", "remove"})
+     */
+    protected $teamMembers;
 
     public function __construct()
     {
@@ -96,5 +106,25 @@ class User extends BaseUser
     public function getSurname()
     {
         return $this->surname;
+    }
+
+    public function setTeamMembers($teamMembers)
+    {
+        $this->teamMembers = $teamMembers;
+    }
+
+    public function getTeamMembers()
+    {
+        return $this->teamMembers;
+    }
+
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+
+    public function getCountry()
+    {
+        return $this->country;
     }
 }

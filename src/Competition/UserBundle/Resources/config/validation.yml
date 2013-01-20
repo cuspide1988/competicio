@@ -5,18 +5,16 @@ Competition\UserBundle\Entity\User:
             - MinLength:
                 limit: 3
             - MaxLength:
-                limit: 6
+                limit: 64
         email:
             - Email:
                 checkMX: true
         name:
-            - NotBlank:
             - MinLength:
                 limit: 3
             - MaxLength:
                 limit: 255
         surname:
-            - NotBlank:
             - MinLength:
                 limit: 3
             - MaxLength:
