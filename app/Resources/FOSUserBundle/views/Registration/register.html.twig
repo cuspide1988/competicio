@@ -1,5 +1,13 @@
+{% extends app.request.isXmlHttpRequest ? '::ajax.html.twig' : '::base.html.twig' %}
+
 {% block fos_user_content %}
-    <div id="register_form_container">
+    {% if not app.request.isXmlHttpRequest %}
+    <div class="row">
+        <div class="six columns centered">
+        {% endif %}
         {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+        {% if not app.request.isXmlHttpRequest %}
+        </div>
     </div>
+    {% endif %}
 {% endblock fos_user_content %}

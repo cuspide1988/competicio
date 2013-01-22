@@ -1,6 +1,10 @@
-<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" />
-    </div>
-</form>
+<div class="six columns centered">
+
+    <h2>{% trans %}profile.edit.title{% endtrans %}</h2>
+    <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+        {{ form_widget(form) }}
+        <div>
+            <input class="button small" type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" />
+        </div>
+    </form>
+</div>

@@ -51,10 +51,10 @@
                         </ul>
                     {% else %}
                         <li class="has-button">
-                            <a class="small button" data-reveal-id="loginModal" href="#">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                            <a id="loginButton" class="small button" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                         </li>
                         <li class="has-button">
-                            <a class="small button" data-reveal-id="registerModal" href="#">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                            <a id="registerButton" class="small button" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
                         </li>
                     {% endif %}
                 </li>
@@ -70,25 +70,31 @@
     </nav>
 </div>
 
-<div>
-    <!-- User alert boxes -->
-    {% for key, message in app.session.getFlashes() %}
-        <div class="alert-box {{ key }}">
-            {{ message|trans({}, 'FOSUserBundle') }}
-            <a href="" class="close">&times;</a>
-        </div>
+<!-- No Javascript alert box -->
+<noscript>
+    <div class="alert-box alert">
+        {% trans %}alert.no.javascript{% endtrans %}
+        <a href="" class="close">&times;</a>
+    </div>
+</noscript>
 
-    {% endfor %}
-</div>
+<!-- User alert boxes -->
+{% for key, message in app.session.getFlashes() %}
+    <div class="alert-box {{ key }}">
+        {{ message|trans({}, 'FOSUserBundle') }}
+        <a href="" class="close">&times;</a>
+    </div>
 
-<div id="loginModal" class="reveal-modal small">
-    {% render 'CompetitionFrontendBundle:LoginAndRegister:login' %}
+{% endfor %}
+
+
+<div id="loginModal" class="reveal-modal small" data-href="{{ path('fos_user_security_login') }}">
+    <div id="loginModalContent"></div>
     <a class="close-reveal-modal">&#215;</a>
 </div>
 
-
-<div id="registerModal" class="reveal-modal">
-    {% render 'CompetitionFrontendBundle:LoginAndRegister:registerForm' %}
+<div id="registerModal" class="reveal-modal" data-href="{{ path('fos_user_registration_register') }}">
+    <div id="registerModalContent"></div>
     <a class="close-reveal-modal">&#215;</a>
 </div>
 

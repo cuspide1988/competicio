@@ -17,12 +17,6 @@
     </head>
 
     <body>
-        <noscript>
-            <div class="alert-box alert">
-                Hemos detectado que su navegador no está ejecutando JavaScript. Por favor, actívelo o use un navegador con JavaScript
-                <a href="" class="close">&times;</a>
-            </div>
-        </noscript>
         {% render 'CompetitionFrontendBundle:Page:userBar' %}
 
         {% block fos_user_content %}{% endblock %}
@@ -30,6 +24,7 @@
         {% include '::footer.html.twig' %}
         {% javascripts
             "../app/Resources/public/js/foundation/jquery.js"
+            "../app/Resources/public/js/foundation/modernizr.foundation.js"
             "../app/Resources/public/js/foundation/app.js"
             "../app/Resources/public/js/foundation/jquery.cookie.js"
             "../app/Resources/public/js/foundation/jquery.event.move.js"
@@ -50,7 +45,6 @@
             "../app/Resources/public/js/foundation/jquery.foundation.topbar.js"
             "../app/Resources/public/js/foundation/jquery.offcanvas.js"
             "../app/Resources/public/js/foundation/jquery.placeholder.js"
-            "../app/Resources/public/js/foundation/modernizr.foundation.js"
             "@CompetitionFrontendBundle/Resources/public/js/default.js"
         %}
             <script type="text/javascript" src="{{ asset_url }}"></script>

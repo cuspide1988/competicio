@@ -1,8 +1,10 @@
-{% extends '::base.html.twig' %}
+{% extends app.request.isXmlHttpRequest ? '::ajax.html.twig' : '::base.html.twig' %}
 
 {% block fos_user_content %}
+    {% if not app.request.isXmlHttpRequest %}
     <div id="login-form" class="row">
         <div class="six columns centered">
+        {% endif %}
             <h3>{% trans %}login.title{% endtrans %}</h3>
             {% if error %}
                 <small class="error">{{ error|trans({}, 'FOSUserBundle') }}</small>
@@ -22,6 +24,8 @@
 
                 <input class="small button" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
             </form>
+            {% if not app.request.isXmlHttpRequest %}
         </div>
     </div>
+    {% endif %}
 {% endblock fos_user_content %}

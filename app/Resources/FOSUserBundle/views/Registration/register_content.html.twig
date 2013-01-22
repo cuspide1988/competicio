@@ -1,66 +1,80 @@
-<div class="row">
+<h3>{% trans %}register.title{% endtrans %}</h3>
 
-        <h3>{% trans %}register.title{% endtrans %}</h3>
-        <form id="register_form" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-            {% if form_errors(form.username) %}
-                {% set error_class = 'error' %}
-            {% else %}
-                {% set error_class = '' %}
-            {% endif %}
-            <div class="{{ error_class }}">
-                {{ form_label(form.username) }}
-                {{ form_widget(form.username) }}
-                <small>{{ form_errors(form.username) }}</small>
-            </div>
+<form id="register_form" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+    {% if form_errors(form.username) %}
+        {% set error_class = 'error' %}
+    {% else %}
+        {% set error_class = '' %}
+    {% endif %}
+    <div class="{{ error_class }}">
+        {{ form_label(form.username) }}
+        {{ form_widget(form.username) }}
+        <small>{{ form_errors(form.username) }}</small>
+    </div>
 
-            {% if form_errors(form.email) %}
-                {% set error_class = 'error' %}
-            {% else %}
-                {% set error_class = '' %}
-            {% endif %}
-            <div class="{{ error_class }}">
-                {{ form_label(form.email) }}
-                {{ form_widget(form.email) }}
-                <small>{{ form_errors(form.email) }}</small>
-            </div>
+    {% if form_errors(form.email) %}
+        {% set error_class = 'error' %}
+    {% else %}
+        {% set error_class = '' %}
+    {% endif %}
+    <div class="{{ error_class }}">
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email) }}
+        <small>{{ form_errors(form.email) }}</small>
+    </div>
 
 
-            {% if form.plainPassword.first.vars.errors %}
-                {% set error_class = 'error' %}
-            {% else %}
-                {% set error_class = '' %}
-            {% endif %}
-            <div class="{{ error_class }}">
-                {{ form_label(form.plainPassword.first) }}
-                {{ form_widget(form.plainPassword.first) }}
-                <small>{{ form_errors(form.plainPassword.first) }}</small>
-            </div>
-            {% if form.plainPassword.second.vars.errors %}
-                {% set error_class = 'error' %}
-            {% else %}
-                {% set error_class = '' %}
-            {% endif %}
-            <div class="{{ error_class }}">
-                {{ form_label(form.plainPassword.second) }}
-                {{ form_widget(form.plainPassword.second) }}
-                <small>{{ form_errors(form.plainPassword.second) }}</small>
-            </div>
+    {% if form.plainPassword.first.vars.errors %}
+        {% set error_class = 'error' %}
+    {% else %}
+        {% set error_class = '' %}
+    {% endif %}
+    <div class="{{ error_class }}">
+        {{ form_label(form.plainPassword.first) }}
+        {{ form_widget(form.plainPassword.first) }}
+        <small>{{ form_errors(form.plainPassword.first) }}</small>
+    </div>
+    {% if form.plainPassword.second.vars.errors %}
+        {% set error_class = 'error' %}
+    {% else %}
+        {% set error_class = '' %}
+    {% endif %}
+    <div class="{{ error_class }}">
+        {{ form_label(form.plainPassword.second) }}
+        {{ form_widget(form.plainPassword.second) }}
+        <small>{{ form_errors(form.plainPassword.second) }}</small>
+    </div>
 
-            {# {% if form_errors(form.country) %}
-                {% set error_class = 'error' %}
-            {% else %}
-                {% set error_class = '' %}
-            {% endif %}
-            <div class="selector {{ error_class }}">
-                {{ form_label(form.country) }}
-                {{ form_widget(form.country, { 'separator': '=====' }) }}
-                <small>{{ form_errors(form.country) }}</small>
-            </div>#}
+    {# {% if form_errors(form.country) %}
+        {% set error_class = 'error' %}
+    {% else %}
+        {% set error_class = '' %}
+    {% endif %}
+    <div class="selector {{ error_class }}">
+        {{ form_label(form.country) }}
+        {{ form_widget(form.country, { 'separator': '=====' }) }}
+        <small>{{ form_errors(form.country) }}</small>
+    </div>#}
 
-            {{ form_rest(form) }}
-            <div>
-                <input class="small button" type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
-            </div>
-        </form>
+    {{ form_rest(form) }}
+    <div>
+        <input class="small button" type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+    </div>
+</form>
 
-</div>
+<script>
+    $("#register_form").submit(function() {
+        var url=$('#register_form').attr('action');
+        $('#register_form').attr('action','#');
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: $('#register_form').serialize(),
+            success: function(data)
+            {
+                $('#registerModalContent').html(data);
+            }
+        });
+        return false;
+    });
+</script>

@@ -1,9 +1,11 @@
 profile:
   show:
-    nick: "Nick"
-    email: "Email"
-    name: "Name"
-    surname: "Surname"
+    nick: Nick
+    email: Email
+    name: Name
+    surname: Surname
+  edit:
+    title: Edit profile
 register:
   title: Register form
 

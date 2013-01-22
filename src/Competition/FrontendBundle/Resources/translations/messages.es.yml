@@ -1,3 +1,5 @@
+alert.no.javascript: Hemos detectado que su navegador no está ejecutando JavaScript. Por favor, actívelo o use un navegador con JavaScript
+
 goto:
   home: Volver a la página principal
 
