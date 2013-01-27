@@ -10,7 +10,7 @@
                 <small class="error">{{ error|trans({}, 'FOSUserBundle') }}</small>
             {% endif %}
 
-            <form action="{{ path("fos_user_security_check") }}" method="post">
+            <form id="login_form" action="{{ path("fos_user_security_check") }}" method="post">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
                 <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>

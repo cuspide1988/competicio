@@ -11,3 +11,6 @@ register:
 
 login:
   title: Login
+  successful:
+      title: Login successful
+      text: You have successfully logged

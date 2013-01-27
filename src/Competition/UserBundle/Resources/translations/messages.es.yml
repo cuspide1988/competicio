@@ -11,3 +11,6 @@ register:
 
 login:
   title: Entrar
+  successful:
+    title: Inicio de sesión correcto
+    text: Ha iniciado sesión correctamente

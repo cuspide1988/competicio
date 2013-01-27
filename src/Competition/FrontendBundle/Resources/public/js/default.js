@@ -7,6 +7,7 @@ $(window).load(function() {
     loadRegisterForm();
     loadLoginForm();
     loadAjaxRegisterFormSubmit();
+    loadAjaxLoginFormSubmit();
 });
 
 function loadOrbit()
@@ -58,7 +59,8 @@ function loadLoginForm()
 
 function loadAjaxRegisterFormSubmit()
 {
-    $("#register_form").submit(function() {
+    $("#registerModalContent").on("submit", "#register_form",function(event) {
+        event.preventDefault();
         var url=$('#register_form').attr('action');
         $('#register_form').attr('action','#');
         $.ajax({
@@ -68,6 +70,26 @@ function loadAjaxRegisterFormSubmit()
             success: function(data)
             {
                 $('#registerModalContent').html(data);
+            }
+        });
+        return false;
+    });
+}
+
+function loadAjaxLoginFormSubmit()
+{
+    $("#loginModalContent").on("submit", "#login_form",function(event) {
+        event.preventDefault();
+        var url=$('#login_form').attr('action');
+        $('#login_form').attr('action','#');
+        var geturl;
+        geturl = $.ajax({
+            type: "POST",
+            url: url,
+            data: $('#login_form').serialize(),
+            success: function(data)
+            {
+                $('#loginModalContent').html(data);
             }
         });
         return false;

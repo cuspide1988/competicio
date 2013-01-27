@@ -61,20 +61,3 @@
         <input class="small button" type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
     </div>
 </form>
-
-<script>
-    $("#register_form").submit(function() {
-        var url=$('#register_form').attr('action');
-        $('#register_form').attr('action','#');
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: $('#register_form').serialize(),
-            success: function(data)
-            {
-                $('#registerModalContent').html(data);
-            }
-        });
-        return false;
-    });
-</script>
