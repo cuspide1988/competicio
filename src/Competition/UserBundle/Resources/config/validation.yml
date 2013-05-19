@@ -1,7 +1,7 @@
 Competition\UserBundle\Entity\User:
     properties:
         username:
-            - NotBlank:
+            - NotBlank: ~
             - MinLength:
                 limit: 3
             - MaxLength:

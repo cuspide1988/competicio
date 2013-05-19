@@ -1,16 +1,16 @@
 Competition\TeamBundle\Entity\Team:
     properties:
         name:
-            - NotBlank:
+            - NotBlank: ~
             - MinLength:
                 limit: 5
             - MaxLength:
                 limit: 64
         tag:
-            - NotBlank:
+            - NotBlank: ~
             - MinLength:
                limit: 5
             - MaxLength:
                limit: 64
         web:
-            -URL:
+            -URL: ~

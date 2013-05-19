@@ -9,7 +9,7 @@
                     </a>
                 </h1>
             </li>
-            <li class="toggle-topbar"><a href="#"></a></li>
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
         </ul>
 
 
@@ -51,10 +51,10 @@
                         </ul>
                     {% else %}
                         <li class="has-button">
-                            <a id="loginButton" class="small button" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                            <a id="loginButton" data-reveal-id="loginModal" class="small button" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                         </li>
                         <li class="has-button">
-                            <a id="registerButton" class="small button" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                            <a id="registerButton" data-reveal-id="registerModal" class="small button" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
                         </li>
                     {% endif %}
                 </li>

@@ -1,14 +1,16 @@
 $(window).load(function() {
-    $("#randombutton").click(function() {
-        alert("hola");
-    });
-    loadOrbit();
+    loadFoundation();
     loadUserBarWithJavascript();
     loadRegisterForm();
     loadLoginForm();
     loadAjaxRegisterFormSubmit();
     loadAjaxLoginFormSubmit();
 });
+
+function loadFoundation()
+{
+    $(document).foundation();
+}
 
 function loadOrbit()
 {
@@ -52,6 +54,7 @@ function loadLoginForm()
 {
     $("#loginButton").click(function() {
         var url = $('#loginModal').attr('data-href');
+        console.log(url);
         $('#loginModalContent').load( url );
         $("#loginModal").reveal();
     });

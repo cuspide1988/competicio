@@ -26,7 +26,10 @@
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "bcc/extra-tools-bundle": "dev-master",
         "pagerfanta/pagerfanta": "dev-master",
-        "white-october/pagerfanta-bundle": "dev-master"
+        "white-october/pagerfanta-bundle": "dev-master",
+        "components/modernizr": "dev-master",
+        "components/normalize.css": "dev-master",
+        "components/foundation": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
