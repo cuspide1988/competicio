@@ -19,15 +19,6 @@ competition_frontend:
     resource: "@CompetitionFrontendBundle/Resources/config/routing.yml"
     prefix:   /
 
-sonata:
-    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-    prefix: /admin
-
-_sonata_admin:
-    resource: .
-    type: sonata_admin
-    prefix: /admin
-
 _user_bundle:
     resource: "@CompetitionUserBundle/Resources/config/routing.yml"
 
