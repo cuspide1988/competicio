@@ -13,4 +13,4 @@ Competition\TeamBundle\Entity\Team:
             - MaxLength:
                limit: 64
         web:
-            -URL: ~
+            - Url: ~

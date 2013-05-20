@@ -65,7 +65,8 @@ class Blog
     protected $updated;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Competition\GameBundle\Entity\Game", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="Competition\GameBundle\Entity\Game", inversedBy="blogs")
+     * @ORM\JoinColumn(name="game_id", referencedColumnName="id")
      */
     protected $game;
 

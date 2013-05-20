@@ -48,6 +48,11 @@ class Game
     protected $maps;
 
     /**
+     * @ORM\OneToMany(targetEntity="Competition\BlogBundle\Entity\Blog", mappedBy="game")
+     */
+    protected $blogs;
+
+    /**
      * Get id
      *
      * @return integer 
